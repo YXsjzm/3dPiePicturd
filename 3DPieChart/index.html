@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<script type="text/javascript" src="./highcharts.js"></script>
+		<script type="text/javascript" src="./highcharts-3d.js"></script>
+		<title>highCharts</title>
+		<style type="text/css">
+			.circleGraphBox {
+				position: relative;
+			}
+			
+			.circleGraphBox .mainCenterInfo {
+				position: absolute;
+				top: 40%;
+				left: 47.5%;
+				text-align: center;
+			}
+			
+			.mainCenterInfo p:nth-child(2),
+			.mainCenterInfo p:nth-child(4) {
+				font-weight: bold;
+				font-size: 14px;
+			}
+			
+			.mainCenterInfo p {
+				margin: 5px 0 5px 0;
+			}
+			
+			.highcharts-button.highcharts-contextbutton,
+			.highcharts-title,
+			.highcharts-credits {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="circleGraphBox">
+			<div class="circleGraph" id="circleGraph"></div>
+			<div class="mainCenterInfo">
+				<p>融资总金额</p>
+				<p>1418500万元</p>
+				<p>融资综合成本</p>
+				<p>6.18%</p>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	// 饼图
+	var chart = null;
+	chart = new Highcharts.Chart({
+		colors: ['#0568dd', '#f556a0', '#0cd9f9'],
+		chart: {
+			renderTo: 'circleGraph',
+			type: 'pie',
+			options3d: {
+				enabled: true,
+				alpha: 45
+			}
+		},
+		subtitle: {
+			// text: 'Highcharts 中的3D环形图'
+		},
+		plotOptions: {
+			pie: {
+				innerSize: 200,
+				depth: 40
+			}
+		},
+		series: [{
+			dataLabels: {
+				color: '#666',
+				connectorColor: '#d1dfe0',
+				style: {
+					"fontWeight": "normal",
+					"fontSize": "14px"
+				}
+			},
+			data: [
+				['贷款余额<span><strong>16,000</strong></span>万元<br/>贷款融资成本<span><strong>4.785</strong></span>%', 10],
+				['债券融资余额<span><strong>230,000</strong></span>万元<br/>债券融资成本<span><strong>7.6</strong></span>%', 13],
+				['股票融资金融<span><strong>1,172,500</strong></span>万元', 13]
+			]
+		}]
+	});
+	// 饼图
+</script>
